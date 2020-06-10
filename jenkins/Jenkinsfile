@@ -11,9 +11,13 @@ pipeline {
     }
     stages {
         stage('Build') {
+            environment {
+                AN_ACCESS_KEY = credentials('4baa3bcb-b431-4728-8b2a-27abfea2bbfb')
+            }
             steps {
                 sh 'npm install'
-                echo 'trying'
+                // echo 'trying'
+                sh 'echo "$AN_ACCESS_KEY"'
             }
         }
         stage('Test') {
